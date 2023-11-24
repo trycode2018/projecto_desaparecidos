@@ -8,20 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
      <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{ asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
      <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
     <!--<link rel="icon" type="image/png" href="assets/img/favicon.png">-->
 </head>
 
@@ -56,7 +56,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="{{ asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">Lucio Bengue</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -112,7 +112,7 @@
             </a>
           </li>
           <li>
-            <a href="/show">
+            <a href="/pessoas">
               <i class="bi bi-circle"></i><span>Visualizar Pessoas</span>
             </a>
           </li>
@@ -131,7 +131,7 @@
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="/pessoas/aparecidas">
               <i class="bi bi-circle"></i><span>Pessoas Encontradas</span>
             </a>
           </li>
@@ -200,17 +200,17 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/chart.js/chart.umd.js')}}"></script>
+    <script src="{{ asset('assets/vendor/echarts/echarts.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/quill/quill.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{ asset('assets/vendor/tinymce/tinymce.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js')}}"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js')}}"></script>
 
 </body>
 </html>

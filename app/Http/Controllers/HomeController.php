@@ -49,6 +49,16 @@ class HomeController extends Controller
 
     public function visualizarPessoas()
     {
+        $pessoas = (new FindController())->index();
+        return view('pessoas', ['pessoas' => $pessoas]);
+    }
+    public function visualizarPessoas_aparecidas()
+    {
+        $pessoas = (new FindController())->getEncontradas();
+        return view('aparecidas', ['pessoas' => $pessoas]);
+    }
+    public function visualizarPessoas_desaparecidas()
+    {
         $pessoas = (new FindController())->getDesaparecidos();
         return view('show', ['pessoas' => $pessoas]);
     }
@@ -58,9 +68,9 @@ class HomeController extends Controller
         return view('edit');
     }
 
-    public function mostrarUmaPessoa()
+    public function mostrarUmaPessoa($id)
     {
-        $find = (new FindController())->show();
+        $find = (new FindController())->show($id);
         return view('people',['pessoa'=>$find]);
     }
 }

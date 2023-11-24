@@ -151,10 +151,10 @@
       <div class="card-body">
 
         <h5 class="card-title">Lista de Pessoas Cadastradas</h5>
-        <p>Informaçoes sobre as pessoas inseridas no sistema. <a href="#" >Tabela Completa</a> biblioteca.</p>
+        <p>Informaçoes sobre as pessoas inseridas no sistema.</p>
 
         <!-- Table with stripped rows -->
-       
+
         <table class="table ">
           <thead>
             <tr>
@@ -163,6 +163,7 @@
               <th scope="col">Endereço</th>
               <th scope="col">Idade</th>
               <th scope="col">Desaparecimento</th>
+              <th scope="col">Telefone</th>
               <th scope="col">Imagem</th>
             </tr>
           </thead>
@@ -174,7 +175,8 @@
                 <td>{{ $find->address }}</td>
                 <td>{{ $find->age }}</td>
                 <td>{{ $find->date }}</td>
-                <td><img src="assets/img/{{ $find->picture }}"></td>
+                <td>{{ $find->phone_number }}</td>
+                <td><img src="assets/img/{{ $find->picture }}" style="width:50px;height:50px;" class="rounded-circle"></td>
               </tr>
             @endforeach
 

@@ -67,10 +67,11 @@ class FindController extends Controller
 
             $imageName = $requestImage->getClientOriginalName().".".$extension;
 
-            $request->image->move(public_path('assets/img/',$imageName));
+            $request->image->move(public_path('assets/img/'),$imageName);
             $user->picture = $imageName;
         }
-        //$user->picture = "avatar.png";
+
+
         $user->date = $request->date;
         $user->status = "Ativo";
         $user->save();
@@ -84,10 +85,9 @@ class FindController extends Controller
      * @param  \App\Models\Find  $find
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $find = Find::findOrFail(2);
-        //return view('people',['pessoa'=>$find]);
+        $find = Find::findOrFail($id);
         return $find;
     }
 
