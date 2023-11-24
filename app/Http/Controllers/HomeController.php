@@ -16,7 +16,7 @@ class HomeController extends Controller
             'pessoas' => $finds,
             'total' => $total,
             'count' => $count,
-            'founded' => $encontradas
+            'founded' => $encontradas,
         ]);
     }
 
@@ -58,9 +58,9 @@ class HomeController extends Controller
         return view('edit');
     }
 
-    public function mostrarUmaPessoa($id)
+    public function mostrarUmaPessoa()
     {
-        $find = (new FindController())->show($id);
+        $find = (new FindController())->show();
         return view('people',['pessoa'=>$find]);
     }
 }

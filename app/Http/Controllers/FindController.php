@@ -84,9 +84,9 @@ class FindController extends Controller
      * @param  \App\Models\Find  $find
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $find = Find::findOrFail($id);
+        $find = Find::findOrFail(2);
         //return view('people',['pessoa'=>$find]);
         return $find;
     }

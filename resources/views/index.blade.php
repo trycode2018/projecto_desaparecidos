@@ -154,6 +154,7 @@
         <p>Informaçoes sobre as pessoas inseridas no sistema. <a href="#" >Tabela Completa</a> biblioteca.</p>
 
         <!-- Table with stripped rows -->
+       
         <table class="table ">
           <thead>
             <tr>
@@ -179,6 +180,7 @@
 
           </tbody>
         </table>
+
         <!-- End Table with stripped rows -->
 
       </div>

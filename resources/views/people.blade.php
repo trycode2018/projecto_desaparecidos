@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+
 <section class="section dashboard">
     <div class="row">
     <!-- Left side columns -->
@@ -13,8 +14,8 @@
             <div class="card">
               <div class="card-body">
 
-                <h5 class="card-title">Lista de Pessoas Desaparecidas</h5>
-                <p>Esta área é responsavél por apresentar a lista de todas as pessoas desaparecidas na cidade de Luanda, que estejam cadastrados no sistema.
+                <h5 class="card-title">Pessoa Desaparecida</h5>
+                <p>Esta área é responsavél por apresentar uma pessoa desaparecida.
                 <a href="/home" >Ir a pagina inicial</a>.</p>
 
                 <div class="col-md-10 offset-md-1">

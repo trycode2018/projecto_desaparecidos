@@ -38,10 +38,9 @@
     </div>
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="GET" action="/pessoas/{id}">
-        @csrf
+      <form class="search-form d-flex align-items-center" method="GET" action="route('/pessoas/{id}')">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="#" title="Search"><i class="bi bi-search"></i></button>
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div>
 
