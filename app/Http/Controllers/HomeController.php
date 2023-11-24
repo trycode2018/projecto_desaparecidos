@@ -58,9 +58,9 @@ class HomeController extends Controller
         return view('edit');
     }
 
-    public function mostrarUmaPessoa(int $id)
+    public function mostrarUmaPessoa($id)
     {
         $find = (new FindController())->show($id);
-        return view('show_one',['pessoa'=>$find]);
+        return view('people',['pessoa'=>$find]);
     }
 }
