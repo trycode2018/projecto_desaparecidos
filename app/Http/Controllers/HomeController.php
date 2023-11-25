@@ -2,22 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Find;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $finds = (new FindController())->index();
-        $total = (new FindController())->count();
-        $count = (new FindController())->getTotal();
-        $encontradas = (new FindController())->totalEncontradas();
-        return view('index', [
-            'pessoas' => $finds,
-            'total' => $total,
-            'count' => $count,
-            'founded' => $encontradas,
-        ]);
+
+        
+            $finds = (new FindController())->index();
+            $total = (new FindController())->count();
+            $count = (new FindController())->getTotal();
+            $encontradas = (new FindController())->totalEncontradas();
+
+                return view('index', [
+                'pessoas' => $finds,
+                'total' => $total,
+                'count' => $count,
+                'founded' => $encontradas,
+            ]);
+
+
     }
 
     public function call_find()

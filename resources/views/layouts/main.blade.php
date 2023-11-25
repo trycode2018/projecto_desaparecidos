@@ -37,12 +37,12 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="GET" action="route('/pessoas/{id}')">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div>
+    <form class="search-bar" method="GET" >
+      <div class="search-form d-flex align-items-center">
+        <input type="text" name="query" id="query" placeholder="Busca de pessoas" title="Busque uma pessoa">
+        <button  ><a class="bi bi-search" href="pessoas/27" type="submit"></a></button>
+      </div>
+    </form>
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">

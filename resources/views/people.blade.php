@@ -28,36 +28,36 @@
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Nome Completo :</label>
-                                    {{$pessoa->name}}</p>
+                                    <b>{{$pessoa->name}}</b></p>
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Endereço de referencia :</label>
-                                    {{$pessoa->address}}</p>
+                                    <b>{{$pessoa->address}}</b></p>
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Idade :</label>
-                                    {{$pessoa->age}}</p>
+                                    <b >{{$pessoa->age}}</b></p>
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Data do desaparecimento :</label>
-                                    {{$pessoa->date}}</p>
+                                    <b >{{$pessoa->date}}</b></p>
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Número do telefone :</label>
-                                    {{$pessoa->phone_number}}</p>
+                                    <a href="#">{{$pessoa->phone_number}}</a></p>
 
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Breve descriçao :</label>
-                                    {{$pessoa->description}}</p>
+                                    <b>{{$pessoa->description}}</b></p>
 
                                 @if ($pessoa->status=="Ativo")
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Estado do desaparecimento :</label>
-                                    Continua desaparecida</p>
+                                    <b> desaparecida</b></p>
                                 @else
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Estado do desaparecimento :</label>
-                                    Pessoa encontrada</p>
+                                    <b>Pessoa encontrada</b></p>
                                 @endif
 
                             </div>

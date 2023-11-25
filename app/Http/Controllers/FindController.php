@@ -14,7 +14,11 @@ class FindController extends Controller
      */
     public function index()
     {
-        return Find::all();
+       return Find::all();
+    }
+
+    public function getId(){
+        // buscar id
     }
 
     public function count(){
