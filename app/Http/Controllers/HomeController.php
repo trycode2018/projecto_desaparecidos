@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Find;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
 
@@ -83,6 +90,40 @@ class HomeController extends Controller
         $dados = (new FindController())->update($request);
         return redirect('/home')->with(['success'=>'Pessoa editado com sucesso !!',
         'dados'=>$dados]);
+    }
+
+    // auth controller
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function check(Request $request){
+
+        $credentials = $request->validate([
+            'email'=>['required','email'],
+            'password'=> ['required']
+        ],);
+
+        if(Auth::attempt($credentials))
+        {
+            $finds = (new FindController())->index();
+            $total = (new FindController())->count();
+            $count = (new FindController())->getTotal();
+            $encontradas = (new FindController())->totalEncontradas();
+            //$name = $request->email;
+
+            return view('index', [
+                'pessoas' => $finds,
+                'total' => $total,
+                'count' => $count,
+                'founded' => $encontradas,
+                //'name'=>$name
+            ]);
+        }else{
+            return redirect()->back()->with('msg','Credenciais invalidas !!');
+        }
     }
 
 }
