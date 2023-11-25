@@ -1231,3 +1231,10 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+.action{
+    display: flex;
+}
+.edit-btn{
+    margin-right: 5%;
+}

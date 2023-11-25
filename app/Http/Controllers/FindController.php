@@ -101,9 +101,11 @@ class FindController extends Controller
      * @param  \App\Models\Find  $find
      * @return \Illuminate\Http\Response
      */
-    public function edit(Find $find)
+    public function edit($id)
     {
-        //
+        $pessoa = Find::findOrFail($id);
+
+        return $pessoa;
     }
 
     /**
@@ -113,9 +115,25 @@ class FindController extends Controller
      * @param  \App\Models\Find  $find
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Find $find)
+    public function update(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if($request->hasFile('image') && $request->file('image')->isValid())
+        {
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = $requestImage->getClientOriginalName().".".$extension;
+
+            $request->image->move(public_path('assets/img/'),$imageName);
+            $data['picture'] = $imageName;
+        }
+
+       return Find::findOrfail($request->id)->update($data);
+
+
     }
 
     /**

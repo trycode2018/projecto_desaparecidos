@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        
+
             $finds = (new FindController())->index();
             $total = (new FindController())->count();
             $count = (new FindController())->getTotal();
@@ -22,8 +22,6 @@ class HomeController extends Controller
                 'count' => $count,
                 'founded' => $encontradas,
             ]);
-
-
     }
 
     public function call_find()
@@ -69,9 +67,10 @@ class HomeController extends Controller
         return view('show', ['pessoas' => $pessoas]);
     }
 
-    public function editarPessoas()
+    public function editarPessoas($id)
     {
-        return view('edit');
+        $pessoa = (new FindController())->edit($id);
+        return view('edit',['pessoa'=>$pessoa]);
     }
 
     public function mostrarUmaPessoa($id)
@@ -79,4 +78,11 @@ class HomeController extends Controller
         $find = (new FindController())->show($id);
         return view('people',['pessoa'=>$find]);
     }
+
+    public function editarPessoa(Request $request){
+        $dados = (new FindController())->update($request);
+        return redirect('/home')->with(['success'=>'Pessoa editado com sucesso !!',
+        'dados'=>$dados]);
+    }
+
 }

@@ -29,6 +29,7 @@
               <th scope="col">Desaparecimento</th>
               <th scope="col">Telefone</th>
               <th scope="col">Imagem</th>
+              <th scope="col">Acçoes</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +42,16 @@
                 <td>{{ $find->date }}</td>
                 <td>{{ $find->phone_number }}</td>
                 <td><img src="{{ asset('assets/img/'.$find->picture)}}" style="width:50px;height:50px;" class="rounded-circle"></td>
-              </tr>
+                <td class="action">
+                    <a href="/edit/{{$find->id}}" class="btn btn-info edit-btn">
+                        <ion-icon class="bi bi-pencil" name="create-outline"></ion-icon>
+                    </a>
+                    <a href="/pessoas/{{$find->id}}" class="btn btn-primary view-btn">
+                        <ion-icon class="bi bi-eye" name="eye-outline"></ion-icon>
+                    </a>
+
+                </td>
+            </tr>
             @endforeach
 
           </tbody>

@@ -38,7 +38,7 @@
                       <input type="number" class="form-control" name="age">
                     </div>
                   </div>
-                  <div class="row mb-3">
+                  <div class="row mb-3"> 
                     <label for="inputPassword" class="col-sm-2 col-form-label">Telefone</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="phone_number">

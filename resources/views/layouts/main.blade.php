@@ -103,17 +103,12 @@
 
           <li>
             <a href="/create">
-              <i class="bi bi-circle"></i><span>Adicionar Pessoas</span>
-            </a>
-          </li>
-          <li>
-            <a href="/edit">
-              <i class="bi bi-circle"></i><span>Editar Informações</span>
+              <i class="bi bi-code"></i><span>Adicionar Pessoas</span>
             </a>
           </li>
           <li>
             <a href="/pessoas">
-              <i class="bi bi-circle"></i><span>Visualizar Pessoas</span>
+              <i class="bi bi-code-slash"></i><span>Visualizar Pessoas</span>
             </a>
           </li>
         </ul>
