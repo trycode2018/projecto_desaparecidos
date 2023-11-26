@@ -9,15 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
-    public function __construct()
+   /* public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     public function index()
     {
-
-
             $finds = (new FindController())->index();
             $total = (new FindController())->count();
             $count = (new FindController())->getTotal();
@@ -96,7 +94,7 @@ class HomeController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/entrar');
     }
 
     public function check(Request $request){

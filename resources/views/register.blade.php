@@ -87,7 +87,7 @@
                       <button class="btn btn-primary w-100" type="submit">Criar Conta</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Ja tem uma conta? <a href="/login">Log in</a></p>
+                      <p class="small mb-0">Ja tem uma conta? <a href="/entrar">Log in</a></p>
                     </div>
                   </form>
 
