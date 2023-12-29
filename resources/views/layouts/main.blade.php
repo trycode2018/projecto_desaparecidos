@@ -42,7 +42,7 @@
     <form class="search-bar" method="GET" >
       <div class="search-form d-flex align-items-center">
         <input type="text" name="query" id="query" placeholder="Busca de pessoas" title="Busque uma pessoa">
-        <button  ><a class="bi bi-search" href="pessoas/27" type="submit"></a></button>
+        <button  ><a class="bi bi-search" href="pessoas/1" type="submit"></a></button>
       </div>
     </form>
 
@@ -58,14 +58,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+            <img src="{{ asset('assets/img/'.Auth::user()->profile_image)}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>{{ Auth::user()->name}}</h6>
-              <span>Web Developer</span>
+              <span>Administrador</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -189,7 +189,7 @@
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Desenvolvido por <a href="https://bootstrapmade.com/">TryCode</a>
+      Desenvolvido por <a href="https://bootstrapmade.com/">Daniel Neto</a>
     </div>
   </footer><!-- End Footer -->
 

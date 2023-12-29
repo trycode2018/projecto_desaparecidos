@@ -14,6 +14,12 @@
                     <p class="form-control">{{$pessoa->name}}</p>
                     <p class="form-control">{{$pessoa->address}}</p>
                     <p class="form-control">{{$pessoa->age}}</p>
+                    @if ($pessoa->status=="Ativo")
+                    <p class="form-control">Desaparecido/a</p>
+                    @else
+                    <p class="form-control">Encontrado/a</p>
+                    @endif
+
                     <p class="form-control">{{$pessoa->date}}</p>
                 </form>
             </div>

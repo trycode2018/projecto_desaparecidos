@@ -23,6 +23,15 @@
               <div class="card-body">
                 <h5 class="card-title">Submeter informaçoes de pessoas desaparecidas</h5>
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <!-- General Form Elements -->
                 <form action="/store" method="post" enctype="multipart/form-data">
                     @csrf
@@ -38,7 +47,7 @@
                       <input type="number" class="form-control" name="age">
                     </div>
                   </div>
-                  <div class="row mb-3"> 
+                  <div class="row mb-3">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Telefone</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="phone_number">

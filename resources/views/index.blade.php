@@ -45,7 +45,11 @@
               </div>
               <div class="ps-3">
                 <h6>{{ $total }}</h6>
-                <span class="text-success small pt-1 fw-bold">{{(($total*100)/($count))}}%</span> <span class="text-muted small pt-2 ps-1">Estimativa</span>
+                @if($count>0)
+                <span class="text-success small pt-1 fw-bold">{{(($total*100)/($count))}}%</span>
+                @else
+                <span class="text-success small pt-1 fw-bold">Nenhum dado disponivel</span>
+                @endif
 
               </div>
             </div>
@@ -80,8 +84,11 @@
               </div>
               <div class="ps-3">
                 <h6>{{ $founded }}</h6>
-                <span class="text-success small pt-1 fw-bold">{{(($founded*100)/($count))}}%</span> <span class="text-muted small pt-2 ps-1">Estimativa</span>
-
+                @if($count > 0)
+                <span class="text-success small pt-1 fw-bold">{{ ($founded * 100) / $count }}%</span>
+                @else
+                <span class="text-muted small pt-1 fw-bold">Nenhum dado disponível para calcular a porcentagem.</span>
+                @endif
               </div>
             </div>
           </div>
@@ -107,7 +114,12 @@
               </div>
               <div class="ps-3">
                 <h6>{{ $count }}</h6>
-                <span class="text-danger small pt-1 fw-bold">100%</span> <span class="text-muted small pt-2 ps-1">Actualizado</span>
+                @if($count>0)
+                <span class="text-danger small pt-1 fw-bold">100%</span>
+                @else
+                <span class="text-danger small pt-1 fw-bold">0%</span>
+                @endif
+                <span class="text-muted small pt-2 ps-1">Actualizado</span>
 
               </div>
             </div>

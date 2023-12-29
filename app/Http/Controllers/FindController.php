@@ -56,6 +56,32 @@ class FindController extends Controller
      */
     public function store(Request $request)
     {
+        $customMessages = [
+            'name.required' => 'O campo nome é obrigatório.',
+            'name.alpha' => 'O campo nome deve conter apenas letras.',
+            'age.required' => 'O campo idade é obrigatório.',
+            'addres.required' => 'O campo endereço é obrigatório',
+            'description.required' => 'O campo descriçao é obrigatório',
+            'phone_number.required' => 'O campo telefone é obrigatório',
+            'status.required' => 'O campo estado é obrigatório',
+            'date.required' => 'O campo data é obrigatório',
+            'phone_number.digits' => 'O campo telefone deve conter apenas 9 digitos',
+            'phone_number.image' => 'O campo foto deve ser uma imagem',
+            'phone_number.mimes' => 'O campo foto deve ser do formato (jpeg, png,jpg ou gif)',
+        ];
+        $request->merge(['status' => $request->input('status', 'Ativo')]);
+
+        $request->validate([
+            'name' => 'required|string',
+            'age' => 'required|integer',
+            'address' => 'required|string',
+            'description' => 'required|string',
+            'phone_number' => 'required|digits:9',
+            'status' => 'required|in:Ativo,Inativo',
+            'date' => 'required|date',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ],$customMessages);
+
         $user = new Find();
         $user->name = $request->input('name');
         $user->age = $request->input('age');

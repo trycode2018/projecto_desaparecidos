@@ -90,7 +90,7 @@ class HomeController extends Controller
         'dados'=>$dados]);
     }
 
-    // auth controller
+
     public function logout()
     {
         Auth::logout();

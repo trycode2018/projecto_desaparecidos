@@ -59,7 +59,7 @@
                     <p class="text-center small">Informe seus dados para criar sua conta</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="{{ route('register') }}" method="POST">
+                  <form class="row g-3 needs-validation" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                    {!! csrf_field() !!}
                     <div class="col-12">
                       <label for="yourName" class="form-label">Seu nome</label>
@@ -67,6 +67,11 @@
                       <div class="invalid-feedback">Porfavor, informe seu nome!</div>
                     </div>
 
+                    <div class="col-12">
+                        <label for="profile-image" class="form-label">Imagem do perfil</label>
+                        <input type="file" name="profile_image" class="form-control" id="profile_image" required>
+
+                    </div>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Seu email </label>
