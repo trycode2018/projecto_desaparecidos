@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'profile_image',
+        'isAdmin',
     ];
 
     /**
@@ -42,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function finds()
+    {
+        return $this->hasMany(Find::class);
+    }
 }

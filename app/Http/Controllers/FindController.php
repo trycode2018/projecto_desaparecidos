@@ -172,8 +172,21 @@ class FindController extends Controller
             'phone_number'=>'required|integer|digits:9',
         ],$customMessages);
 
-       return Find::findOrfail($request->id)->update($data);
-
+        $find = Find::findOrFail($request->id);
+        if($find->user_id != auth()->id())
+        {
+            dd('Você não tem permissão para editar esta pessoa desaparecida.');
+            /*return response()
+            ->view('/index', compact('find'))
+            ->with('mensagemErro', 'Você não tem permissão para editar esta pessoa desaparecida.')
+            ->header('Content-Type', 'text/javascript');
+            */
+            if(auth()->user()->isAdmin){
+                return Find::findOrfail($request->id)->update($data);
+            }
+        }else{
+            return Find::findOrfail($request->id)->update($data);
+        }
 
     }
 
