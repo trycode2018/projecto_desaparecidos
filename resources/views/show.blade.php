@@ -14,7 +14,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h5 class="card-title">Pessoas Desaparecidas</h5>
+        <h5 class="card-title">PESSOAS DESAPARECIDAS</h5>
         <p>Esta área é responsavél por apresentar a lista de todas as pessoas desaparecidas na cidade de Luanda, que estejam cadastrados no sistema.
         <a href="/home" >Ir a pagina inicial</a>.</p>
 

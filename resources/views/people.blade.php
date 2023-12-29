@@ -14,7 +14,7 @@
             <div class="card">
               <div class="card-body">
 
-                <h5 class="card-title">Pessoa Desaparecida</h5>
+                <h5 class="card-title">PESSOA DESAPARECIDA</h5>
                 <p>Esta área é responsavél por apresentar <a href="#">uma unica</a> pessoa desaparecida.
                 <a href="/home" >Ir a pagina inicial</a>.</p>
 

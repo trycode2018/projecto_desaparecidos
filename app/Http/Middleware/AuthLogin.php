@@ -18,7 +18,7 @@ class AuthLogin
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return view('auth.login');
+            return redirect('/entrar');
         }
         return $next($request);
     }

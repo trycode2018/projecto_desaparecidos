@@ -25,8 +25,18 @@
                 <h6 class="text-muted text-justify" style="font-size: 12px;">Nesta área a gente pode alterar informaçoes como a <b>data do desaparecimento</b>,
                     <b>descriçao</b>, <b>endereço</b> e o <b>estado</b> a pessoa já foi encontrada pelos seus familiares.
                     <p>Podemos também alterar o número de telefone em caso de incutirmos a responsabilidade em outra pessoa,<br />
-                    as possibilidades para o estado sao <b>Inativo(Encontrado)</b> e/ou <b>Ativo(Desaparecido)</b></p>
+                    as possibilidades para o estado sao <b>Inativo(Encontrado/a)</b> e/ou <b>Ativo(Desaparecido/a)</b></p>
                 </h6>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
 
                 <!-- General Form Elements -->
                 <form action="/update/{{$pessoa->id}}" method="POST" enctype="multipart/form-data">
@@ -41,7 +51,7 @@
                   <div class="row mb-3">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Idade</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" name="age" value="{{$pessoa->age}}" readonly>
+                      <input type="number" class="form-control" name="age" value="{{$pessoa->age}}" >
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -63,7 +73,7 @@
                   <div class="row mb-3">
                     <label for="inputDate" class="col-sm-2 col-form-label">Data</label>
                     <div class="col-sm-10">
-                      <input type="date" class="form-control" name="date" ">
+                      <input type="text" class="form-control" name="date" value="{{ $pessoa->date }}">
                     </div>
                   </div>
 
@@ -80,9 +90,11 @@
                     </div>
                   </div>
                   <div class="row mb-3">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Estado do desaparecimento</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="status" value="{{$pessoa->status}}">
+                    <label for="status" class="col-sm-2 col-form-label">Estado (Ativo/Inativo): </label>
+
+                    <div class="col-sm-5 mb-3">
+
+                        <input type="text" name="status" id="status" class="form-control" value="Ativo">
                     </div>
                   </div>
 

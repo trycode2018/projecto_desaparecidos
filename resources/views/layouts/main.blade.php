@@ -39,10 +39,10 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
 
-    <form class="search-bar" method="GET" >
+    <form class="search-bar" method="GET" action="/buscaPorNome">
       <div class="search-form d-flex align-items-center">
         <input type="text" name="query" id="query" placeholder="Busca de pessoas" title="Busque uma pessoa">
-        <button  ><a class="bi bi-search" href="pessoas/1" type="submit"></a></button>
+        <button type="submit" class="bi bi-search"></button>
       </div>
     </form>
 
@@ -58,14 +58,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ asset('assets/img/'.Auth::user()->profile_image)}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+            <img src="{{ asset('assets/img/'.Auth::user()->profile_image)}}" style="width: 50px;" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ strtoupper(Auth::user()->name) }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>{{ Auth::user()->name}}</h6>
-              <span>Administrador</span>
+              <span>Usuário Normal</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -99,18 +99,18 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Pessoas</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Área de Registro</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
           <li>
             <a href="/create">
-              <i class="bi bi-code"></i><span>Adicionar Pessoas</span>
+              <i class="bi bi-code"></i><span>Registrar Pessoas</span>
             </a>
           </li>
           <li>
             <a href="/pessoas">
-              <i class="bi bi-code-slash"></i><span>Visualizar Pessoas</span>
+              <i class="bi bi-code-slash"></i><span>Visualizar Todos</span>
             </a>
           </li>
         </ul>
@@ -119,17 +119,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Visualização</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Área de Visualização</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/show">
-              <i class="bi bi-circle"></i><span>Pessoas Desaparecidas</span>
+              <i class="bi bi-circle"></i><span>Desaparecidas</span>
             </a>
           </li>
           <li>
             <a href="/pessoas/aparecidas">
-              <i class="bi bi-circle"></i><span>Pessoas Encontradas</span>
+              <i class="bi bi-circle"></i><span>Encontradas</span>
             </a>
           </li>
         </ul>
@@ -138,29 +138,14 @@
       <li class="nav-heading">INFORMAÇÕES</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/perfil">
           <i class="bi bi-person"></i>
           <span>Ir ao Perfil</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
-
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contactos</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Editar Perfil</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="/logout">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Terminar Sessão</span>
         </a>
@@ -185,11 +170,7 @@
       &copy; Copyright <strong><span>Plataforma de busca de pessoas </span></strong>. Todos os direitos reservados
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Desenvolvido por <a href="https://bootstrapmade.com/">Daniel Neto</a>
+       Desenvolvido por <a href="/home">Daniel Neto</a>
     </div>
   </footer><!-- End Footer -->
 

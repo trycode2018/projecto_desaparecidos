@@ -66,8 +66,8 @@ class FindController extends Controller
             'status.required' => 'O campo estado é obrigatório',
             'date.required' => 'O campo data é obrigatório',
             'phone_number.digits' => 'O campo telefone deve conter apenas 9 digitos',
-            'phone_number.image' => 'O campo foto deve ser uma imagem',
-            'phone_number.mimes' => 'O campo foto deve ser do formato (jpeg, png,jpg ou gif)',
+            'picture.image' => 'O campo foto deve ser uma imagem',
+            'picture.mimes' => 'O campo foto deve ser do formato (jpeg, png,jpg ou gif)',
         ];
         $request->merge(['status' => $request->input('status', 'Ativo')]);
 
@@ -156,6 +156,21 @@ class FindController extends Controller
             $request->image->move(public_path('assets/img/'),$imageName);
             $data['picture'] = $imageName;
         }
+
+        $customMessages = [
+            'status.required' => 'O campo status é obrigatório.',
+            'description.required' => 'O campo descricao é obrigatório.',
+            'address.required' => 'O campo endereco é obrigatório.',
+            'phone_number.digits' => 'O campo telefone deve conter 9 digitos',
+            'status.in' => 'O campo estado aceita apenas duas possibilidades Ativo(Desaparecido) / Inativo(Encontrado)'
+        ];
+
+        $request->validate([
+            'status' => 'required|in:Ativo,Inativo',
+            'description' => 'required|string',
+            'address' => 'required|string',
+            'phone_number'=>'required|integer|digits:9',
+        ],$customMessages);
 
        return Find::findOrfail($request->id)->update($data);
 

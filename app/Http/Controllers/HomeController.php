@@ -85,16 +85,21 @@ class HomeController extends Controller
     }
 
     public function editarPessoa(Request $request){
+
         $dados = (new FindController())->update($request);
         return redirect('/home')->with(['success'=>'Pessoa editado com sucesso !!',
         'dados'=>$dados]);
     }
 
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/entrar');
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     public function check(Request $request){
@@ -121,6 +126,23 @@ class HomeController extends Controller
             ]);
         }else{
             return redirect()->back()->with('msg','Credenciais invalidas !!');
+        }
+    }
+
+    public function metodoDeBuscaPorNome(Request $request)
+    {
+        $nome = $request->input('query');
+        // Realize a lógica de busca usando Eloquent ou como preferir
+        $usuarioEncontrado = Find::where('name', $nome)->first();
+        //dd($usuarioEncontrado);
+        if ($usuarioEncontrado) {
+
+            // Redirecione para a rota apropriada
+            return redirect()->route('pessoas.mostrarUmaPessoa', ['id' => $usuarioEncontrado->id]);
+        } else {
+            // Caso não encontrado, redirecione para alguma outra rota ou exiba uma mensagem
+
+            return $this->index();
         }
     }
 

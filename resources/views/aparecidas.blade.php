@@ -14,7 +14,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h5 class="card-title">Pessoas Encontradas</h5>
+        <h5 class="card-title">PESSOAS ENCONTRADAS</h5>
         <p>Esta área é responsavél por apresentar a lista de todas as pessoas <a href="#">encontradas</a> na cidade de Luanda, que estejam cadastrados no sistema.
         <a href="/home" >Ir a pagina inicial</a>.</p>
 
@@ -49,7 +49,7 @@
                     <a href="/pessoas/{{$find->id}}" class="btn btn-primary view-btn">
                         <ion-icon class="bi bi-eye" name="eye-outline"></ion-icon>
                     </a>
-                    
+
                 </td>
             </tr>
             @endforeach
