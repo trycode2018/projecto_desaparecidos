@@ -65,7 +65,12 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>{{ Auth::user()->name}}</h6>
+              @if (Auth::user()->isAdmin)
+              <span>Administrador do sistema</span>
+              @else
               <span>Usuário Normal</span>
+              @endif
+
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -113,9 +118,18 @@
               <i class="bi bi-code-slash"></i><span>Visualizar Todos</span>
             </a>
           </li>
+
         </ul>
       </li><!-- End Components Nav -->
 
+      @if (Auth::user()->isAdmin)
+      <li class="nav-item">
+        <a href="/conceder" class="nav-link ">
+          <i class="bi bi-code-slash"></i>
+          <span>Conceder Permissão</span>
+        </a>
+      </li>
+      @endif
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

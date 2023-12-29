@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Find;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,7 +50,7 @@ class HomeController extends Controller
             ]);
         } else {
             return view('index', [
-                'error' => 'Individuo nao registrado !!!',
+                'error' => 'Você não tem permissão para cadastrar uma pessoa desaparecida.',
                 'total' => $total, 'pessoas' => $finds, 'count' => $count,
                 'founded' => $encontradas
             ]);
@@ -61,6 +62,36 @@ class HomeController extends Controller
         $pessoas = (new FindController())->index();
         return view('pessoas', ['pessoas' => $pessoas]);
     }
+
+    public function concederPermissao()
+    {
+        $users = User::all();
+        return view('permissao',[
+            'users'=>$users
+        ]);
+    }
+
+    public function registrarPermissao(Request $request,$id){
+        $user = User::findOrFail($id);
+
+        if (auth()->user()->isAdmin) {
+            // Verificar se a permissão já foi concedida
+            if (!$user->permissionGranted) {
+                // Conceder permissão
+                $user->update(['permissionGranted' => true]);
+
+                // Redirecionar ou exibir mensagem de sucesso
+                return back()->with('mensagemSucesso', 'Permissão concedida com sucesso.');
+            } else {
+                // Redirecionar ou exibir mensagem de que a permissão já foi concedida
+                return back()->with('mensagemErro', 'A permissão já foi concedida anteriormente.');
+            }
+        } else {
+            // Redirecionar ou exibir mensagem para usuários não autorizados
+            return back()->with('mensagemErro', 'Você não tem permissão para conceder permissão de cadastro a usuários normais.');
+        }
+    }
+
     public function visualizarPessoas_aparecidas()
     {
         $pessoas = (new FindController())->getEncontradas();

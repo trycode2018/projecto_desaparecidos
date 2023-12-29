@@ -17,6 +17,8 @@ Route::middleware(['checkSession'])->group(
     Route::get('/pessoas/aparecidas',[HomeController::class,'visualizarPessoas_aparecidas']);
     Route::get('/pessoas/{id}',[HomeController::class,'mostrarUmaPessoa'])->name('pessoas.mostrarUmaPessoa');
     Route::get('/pessoas',[HomeController::class,'visualizarPessoas']);
+    Route::get('/conceder',[HomeController::class,'concederPermissao']);
+    Route::put('/conceder/{id}',[HomeController::class,'registrarPermissao']);
     Route::get('/edit/{id}',[HomeController::class,'editarPessoas']);
     Route::put('/update/{id}',[HomeController::class,'editarPessoa']);
     }

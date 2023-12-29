@@ -17,7 +17,12 @@
 
                 <img src="{{ asset('assets/img/'.Auth::user()->profile_image)}}" style="width:200px;height:200px;" alt="Perfil" class="rounded-circle">
                 <h2>{{ Auth::user()->name }}</h2>
-                <h5>Usuário Geral</h5>
+                @if (Auth::user()->isAdmin)
+                <h5>Admistrador do Sistema</h5>
+                @else
+                <h5>Usuário Normal</h5>
+                @endif
+
                 <div class="social-links mt-2">
                   <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                   <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

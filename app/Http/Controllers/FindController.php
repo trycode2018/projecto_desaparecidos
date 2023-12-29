@@ -104,9 +104,14 @@ class FindController extends Controller
 
         $user->date = $request->date;
         $user->status = "Ativo";
-        $user->save();
+        if(auth()->user()->permissionGranted || auth()->user()->isAdmin)
+        {
+            $user->save();
+            return $user->id;
+        }else{
+            return -1;
+        }
 
-        return $user->id;
     }
 
     /**
