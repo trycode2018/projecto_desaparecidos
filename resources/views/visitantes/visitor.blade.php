@@ -7,29 +7,29 @@
 
     <!--- font icon css---->
 
-    <link rel="stylesheet" href="./fonts/icons/fonticons.css">
+    <link rel="stylesheet" href="{{ asset('assets/visitantes/fonts/icons/fonticons.css') }}">
 
     <!---swiper plugin css---->
     <link
     rel="stylesheet"
-    href="css/swiper-bundle-min.css"
+    href="{{ asset('assets/visitantes/css/swiper-bundle-min.css') }}"
     />
     <!---main style css---->
-    <link rel="stylesheet" href="css/main.css">
-    <title>Geraldbeard</title>
+    <link rel="stylesheet" href="{{ asset('assets/visitantes/css/main.css') }}">
+    <title>Lostpeson</title>
 </head>
 <body>
     <header id="header" class="">
         <nav class="container">
-            <a href="#" class="logo">Gerald<span>beard.</span></a>
+            <a href="#" class="logo">Lost<span>person.</span></a>
             <!--------MENU---------->
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="#home">Início</a></li>
                     <li><a class="title" href="#about">Sobre</a></li>
-                    <li><a class="title" href="#services">Serviços</a></li>
+                    <li><a class="title" href="#services">Desaparecidos</a></li>
                     <li><a class="title" href="#testimonials">Depoimento</a></li>
-                    <li><a class="title"  href="#contact">Contacto</a></li>
+                    <li><a class="title"  href="#contact">Registrar-se</a></li>
                 </ul>
             </div>
             <!-------MENU------>
@@ -48,17 +48,21 @@
             <section class="container grid" >
                 <!------------imagebanner----->
                 <div class="image">
-                    <img src="./images/img-b-1.jpg" alt="Melhor no são de belaza com ">
+                    <img src="{{ asset('assets/visitantes//images/img02.jpg') }}"  alt="Pessoa desaparecida em Luanda">
                 </div>
                 <!------------textbanner----->
                 <div class="text">
                     <h2 class="title">
-                        Corte ideal para ti
+                        Desaparecimento de pessoas
                     </h2>
                     <p>
-                        Propomos um corte adequado ao estilo e personalidade do homem moderno.
+                        O desaparecimento de pessoas é um problema global amplo,
+                        heterogêneo e com poucas estatísticas.
+                        Na  busca por um familiar que desapareceu,
+                        Além das pessoas lutarem para encontrar uma resposta sobre o que aconteceu,
+                        essas famílias passam a ter necessidades em várias outras áreas de sua vida.
                     </p>
-                    <a href="#" class="button">Agendar um horário</a>
+                    <a href="/entrar" class="button">Entrar no sistema</a>
                 </div>
             </section>
         </section>
@@ -69,22 +73,25 @@
         <section class="section" id="about" >
             <section class="container grid" >
                 <div class="image">
-                    <img src="./images/img-b-1.jpg" alt="Melhor no são de belaza com ">
+                    <img src="{{ asset('assets/visitantes/images/sobre.jpg') }}" alt="Pessoas desaparecidas">
                 </div>
                 <div class="text">
                     <h2 class="title">
-                        Sobre nós
+                        Sobre desaparecimentos
                     </h2>
                     <p>
-                        É uma marca do grupo Bento Cabeleireiros, uma presença sólida no mercado da estética e beleza masculina há mais de 30 anos.
+                        O desaparecimento tem consequências psicológicas, financeiras,
+                         jurídicas, sobre a segurança e também sobre saúde física.
                     </p><br>
                     <p>
-                        Nascido a 10 anos, um conceito que surgiu da vontade de recriar um revivalismo puro das antigas, e praticamente extintas, barbearias de bairro, a Geraldbeard evoluiu e cresceu, contando hoje com 3 lojas distintas mas em tudo iguais.
+                        É importante que essas famílias tenham apoio das autoridades e da sociedade e
+                        é por isso que esse trabalho tem bastante relevancia para a sociedade.
                     </p><br>
 
                     <p><b>
                         <i>
-                            Procure a Geraldbeard mais próxima de si e faça a sua marcação.
+                            Centenas de milhares de pessoas estão atualmente desaparecidas no mundo todo em
+                            decorrência de conflitos armados, violência, desastres naturais ou migrações.
                         </i>
                     </b>
 
@@ -100,29 +107,40 @@
         <section class="section" id="services">
             <div class="container grid">
                 <header>
-                    <h2 class="title">Serviços</h2>
+                    <h2 class="title">Pessoas desaparecidas</h2>
                     <p class="subtitle">
-                        Entre na <strong>Geraldbeard</strong> num pé e saia noutro com o visual novamente impecável.
+                        SISTEMA DE INFORMAÇÃO DE <strong>PESSOAS DESAPARECIDAS </strong> NA PROVÍNCIA DE LUANDA
                     </p>
                 </header>
                 <div class="cards grid">
                     <div class="card">
-                        <i class="icon-hair-cut"></i>
-                        <h3 class="title">Corte de cabelo</h3>
+                        <i class="#">
+                            <img src="{{ asset('assets/visitantes/images/img02.jpg') }}" alt="Pessoas desaparecidas">
+                        </i>
+                        <h3 class="title">Lúcio Bengue</h3>
                         <p>
-                            Com diversas técnicas de corte, requer habilidade e sensibilidade de quem o executa. Para homens contemporâneos.
+                            <h4>Município de Talatona, Camama</h4>
+                            <h4>927476913</h4>
                         </p>
                     </div>
                     <div class="card">
-                        <i class="icon-salon"></i>
-                        <h3 class="title">Corte clássico</h3>
-                        <p>Com apenas uma lamina, tesora e pente do jeito que muito clientes gostam.</p>
+                        <i class="#">
+                            <img src="{{ asset('assets/visitantes/images/img02.jpg') }}" alt="Pessoas desaparecidas">
+                        </i>
+                        <h3 class="title">Lúcio Bengue</h3>
+                        <p>
+                            <h4>Município de Talatona, Camama</h4>
+                            <h4>927476913</h4>
+                        </p>
                     </div>
                     <div class="card">
-                        <i class="icon-beard-outline"></i>
-                        <h3 class="title">Barba</h3>
+                        <i class="#">
+                            <img src="{{ asset('assets/visitantes/images/img02.jpg') }}" alt="Pessoas desaparecidas">
+                        </i>
+                        <h3 class="title">Lúcio Bengue</h3>
                         <p>
-                            Liberte-se da barba enquanto experiencia um momento relaxante com toalha quente.Para homens de barba rija que não descuram a sua boa aparência.
+                            <h4>Município de Talatona, Camama</h4>
+                            <h4>927476913</h4>
                         </p>
                     </div>
                 </div>
@@ -135,7 +153,7 @@
         <section class="section" id="testimonials">
             <div class="container">
                <header>
-                    <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+                    <h2 class="title">Depoimentos de quem já foi encontrado</h2>
                </header>
                <div class="testimonials swiper">
                     <div class="swiper-wrapper">
@@ -146,7 +164,7 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum assumenda voluptas numquam, molestias corporis enim? Aperiam expedita
                                 </p>
                                 <cite>
-                                    <img src="./images/danniel.png" alt="" srcset="">Daniel Geraldo
+                                    <img src="{{ asset('assets/visitantes//images/danniel.png')}}" alt="" srcset="">Daniel Geraldo
                                 </cite>
                             </blockquote>
                         </div>
@@ -189,18 +207,18 @@
         <section id="contact">
             <div class="container grid">
                 <div class="text">
-                    <h2 class="title">Entre em contacto</h2>
+                    <h2 class="title">Registra-se na aplicação</h2>
                     <p>
-                        Entre em contacto com a Geraldbeard, queremos tirar suas dúvidas, ouvir suas críticas e sugestões.
+                        Faça o cadastro na aplicação, e publique informações de pessoas desaparecidas relacionadas a tí.
                     </p>
-                    <a href="https://api.whatsapp.com/send?phone=+244931974210&text=Oi gostaria de agendar agora?" class="button" target="_blank"><i class="icon-whatsapp"></i>Entrar em contacto</a>
+                    <a href="/" class="button" target="_blank"><i class="icon-placeholder"></i>Área de cadastro</a>
                 </div>
 
                 <address class="links">
                     <ul class="grid">
                         <li><i class="icon-call"></i>(+244) 233-234-23</li>
-                        <li><i class="icon-envelope-o"></i>geraldbeard@barber</li>
-                        <li><i class="icon-placeholder"></i>Luanda/Cacuaco</li>
+                        <li><i class="icon-envelope-o"></i>danielneto@geral.com</li>
+                        <li><i class="icon-placeholder"></i>Luanda/Kilamba</li>
                     </ul>
                 </address>
             </div>
@@ -214,8 +232,8 @@
     <footer class="section">
         <div class="container grid">
             <div class="brand">
-                <a href="#home" class="logo logo-alt">Gerald<span>beard.</span></a>
-                <p>2021 Geraldbeard</p>
+                <a href="#home" class="logo logo-alt">Lost<span>person.</span></a>
+                <p>2024 Lostperson</p>
                 <p>Todos direitos reservados.</p>
             </div>
             <div class="social">
@@ -233,11 +251,11 @@
 
 
     <!---------scrollreveal--------->
-    <script src="js/scrollreveal.min.js"></script>
+    <script src="{{ asset('assets/visitantets/js/scrollreveal.min.js') }}"></script>
 
     <!---------swiper plugin js--------->
-    <script src="js/swiper-bundle-min.js"></script>
+    <script src="{{ asset('assets/visitantes/js/swiper-bundle-min.js') }}"></script>
 
-    <script src="js/main.js"></script>
+    <script src="{{ asset('assets/visitantets/js/main.js') }}"></script>
 </body>
 </html>

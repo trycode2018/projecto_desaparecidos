@@ -32,7 +32,7 @@ Route::get('/entrar',[LoginController::class,'index']);
 Route::post('/check',[HomeController::class,'check']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::view('/perfil','perfil');
-
+Route::view('/visitantes','visitantes.visitor');
 
 
 
