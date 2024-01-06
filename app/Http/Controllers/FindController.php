@@ -99,6 +99,10 @@ class FindController extends Controller
 
             $request->image->move(public_path('assets/img/'),$imageName);
             $user->picture = $imageName;
+
+        }else  {
+          
+              $user->picture = '' ;
         }
 
 
