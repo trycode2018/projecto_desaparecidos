@@ -26,13 +26,13 @@ Route::middleware(['checkSession'])->group(
 
 Route::get('/buscaPorNome',[HomeController::class,'metodoDeBuscaPorNome']);
 
-Route::get('/',[RegisterController::class,'create']);
+Route::get('/cadastrar',[RegisterController::class,'create']);
 Route::post('/register',[RegisterController::class,'store'])->name('register');
 Route::get('/entrar',[LoginController::class,'index']);
 Route::post('/check',[HomeController::class,'check']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::view('/perfil','perfil');
-
+Route::view('/','visitantes.visitor');
 
 
 

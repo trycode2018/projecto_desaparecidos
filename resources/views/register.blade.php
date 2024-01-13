@@ -10,7 +10,6 @@
   <meta content="" name="keywords">
 
 
-
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -69,7 +68,7 @@
 
                     <div class="col-12">
                         <label for="profile-image" class="form-label">Imagem do perfil</label>
-                        <input type="file" name="profile_image" class="form-control" id="profile_image" required>
+                        <input type="file" name="profile_image" class="form-control" id="profile_image">
 
                     </div>
 
@@ -98,11 +97,7 @@
 
                 </div>
               </div>
-
-              <div class="credits">
-                Feito por <a href="#">TryCode</a>
-              </div>
-
+              
             </div>
           </div>
         </div>
