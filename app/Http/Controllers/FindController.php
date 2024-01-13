@@ -38,6 +38,9 @@ class FindController extends Controller
     public function totalEncontradas(){
         return sizeof($this->getEncontradas());
     }
+    public function getDesaparecidoPorId($id){
+        return Find::where('id',$id)->first();
+    }
     /**
      * Show the form for creating a new resource.
      *

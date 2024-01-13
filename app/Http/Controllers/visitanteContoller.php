@@ -14,11 +14,15 @@ class visitanteContoller extends Controller
 
     }
 
-    public function visitante_sabeMaisrPessoas_desaparecidas()
+    public function visitante_sabeMaisrPessoas_desaparecidas($id)
     {
-        $pessoas = (new FindController())->getDesaparecidos();
+        $findController = new FindController();
+
+        $pessoa = $findController->getDesaparecidoPorId($id);
        
-        return view('visitantes.visitor', ['pessoas' => $pessoas]);
+        //dd($pessoa);
+
+        return view('visitantes.sabermais', ['pessoa' => $pessoa]);
 
     }
 }

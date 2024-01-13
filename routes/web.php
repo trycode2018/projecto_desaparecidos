@@ -34,7 +34,7 @@ Route::post('/check',[HomeController::class,'check']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::view('/perfil','perfil');
 Route::get('/',[visitanteContoller::class,'visitante_visualizarPessoas_desaparecidas']);
-Route::get('/',[visitanteContoller::class,'visitante_sabeMaisrPessoas_desaparecidas']);
+Route::get('/sabermais/{id}',[visitanteContoller::class,'visitante_sabeMaisrPessoas_desaparecidas']);
 
 
 
