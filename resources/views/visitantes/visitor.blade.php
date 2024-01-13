@@ -29,7 +29,7 @@
                     <li><a class="title" href="#about">Sobre</a></li>
                     <li><a class="title" href="#services">Desaparecidos</a></li>
                     <li><a class="title" href="#testimonials">Depoimento</a></li>
-                    <li><a class="title"  href="#contact">Registrar-se</a></li>
+                    <li><a class="title"  href="cadastrar">Registrar-se</a></li>
                 </ul>
             </div>
             <!-------MENU------>

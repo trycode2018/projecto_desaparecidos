@@ -18,6 +18,7 @@ class RegisterController extends Controller
         $input = $request->all();
 
         $requestImage = $request->file('profile_image');
+        
         if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
             // Faz o upload da imagem e salva o caminho no banco de dados
 

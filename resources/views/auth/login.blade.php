@@ -89,10 +89,6 @@
                 </div>
               </div>
 
-              <div class="credits">
-                 Feito por <a href="#">TryCode</a>
-              </div>
-
             </div>
           </div>
         </div>
