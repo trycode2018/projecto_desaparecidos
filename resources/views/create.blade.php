@@ -38,13 +38,15 @@
                   <div class="row mb-3">
                     <label for="inputText" class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="name">
+                      <input type="text" class="form-control" name="name"
+                      value="{{ old('name') }}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Idade</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" name="age">
+                      <input type="number" class="form-control" name="age"
+                      value="{{ old('age') }}">
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -64,20 +66,21 @@
                   <div class="row mb-3">
                     <label for="inputDate" class="col-sm-2 col-form-label">Data</label>
                     <div class="col-sm-10">
-                      <input type="date" class="form-control" name="date">
+                      <input type="date" class="form-control" name="date"
+                      value="{{ old('date') }}">
                     </div>
                   </div>
 
                   <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Endereço</label>
                     <div class="col-sm-10">
-                      <textarea class="form-control" style="height: 100px" name="address"></textarea>
+                      <textarea class="form-control" style="height: 100px" name="address">{{ old('address') }}</textarea>
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Descriçao</label>
                     <div class="col-sm-10">
-                      <textarea class="form-control" style="height: 100px" name="description"></textarea>
+                      <textarea class="form-control" style="height: 100px" name="description">{{ old('description') }}</textarea>
                     </div>
                   </div>
 

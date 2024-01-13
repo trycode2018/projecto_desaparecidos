@@ -10,24 +10,24 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
-   /* public function __construct()
+    /* public function __construct()
     {
         $this->middleware('auth');
     }*/
 
     public function index()
     {
-            $finds = (new FindController())->index();
-            $total = (new FindController())->count();
-            $count = (new FindController())->getTotal();
-            $encontradas = (new FindController())->totalEncontradas();
+        $finds = (new FindController())->index();
+        $total = (new FindController())->count();
+        $count = (new FindController())->getTotal();
+        $encontradas = (new FindController())->totalEncontradas();
 
-                return view('index', [
-                'pessoas' => $finds,
-                'total' => $total,
-                'count' => $count,
-                'founded' => $encontradas,
-            ]);
+        return view('index', [
+            'pessoas' => $finds,
+            'total' => $total,
+            'count' => $count,
+            'founded' => $encontradas,
+        ]);
     }
 
     public function call_find()
@@ -66,12 +66,14 @@ class HomeController extends Controller
     public function concederPermissao()
     {
         $users = User::all();
-        return view('permissao',[
-            'users'=>$users
+        return view('permissao', [
+            'users' => $users
         ]);
     }
 
-    public function registrarPermissao(Request $request,$id){
+    public function registrarPermissao(Request $request, $id)
+    {
+
         $user = User::findOrFail($id);
 
         if (auth()->user()->isAdmin) {
@@ -106,22 +108,27 @@ class HomeController extends Controller
     public function editarPessoas($id)
     {
         $pessoa = (new FindController())->edit($id);
-        return view('edit',['pessoa'=>$pessoa]);
+        return view('edit', ['pessoa' => $pessoa]);
     }
 
     public function mostrarUmaPessoa($id)
     {
         $find = (new FindController())->show($id);
-        return view('people',['pessoa'=>$find]);
+        return view('people', ['pessoa' => $find]);
     }
 
-    public function editarPessoa(Request $request){
-
-        $dados = (new FindController())->update($request);
-        return redirect('/home')->with(['success'=>'Pessoa editado com sucesso !!',
-        'dados'=>$dados]);
+    public function editarPessoa(Request $request)
+    {
+        //$dados = (new FindController())->update($request);
+        if ($dados = (new FindController())->update($request)) {
+            return redirect('/home')->with([
+                'success' => 'Pessoa editado com sucesso !!',
+                'dados' => $dados
+            ]);
+        } else {
+            return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
+        }
     }
-
 
     public function logout(Request $request)
     {
@@ -133,15 +140,15 @@ class HomeController extends Controller
         return redirect('/');
     }
 
-    public function check(Request $request){
+    public function check(Request $request)
+    {
 
         $credentials = $request->validate([
-            'email'=>['required','email'],
-            'password'=> ['required']
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ],);
 
-        if(Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
             $finds = (new FindController())->index();
             $total = (new FindController())->count();
             $count = (new FindController())->getTotal();
@@ -155,8 +162,8 @@ class HomeController extends Controller
                 'founded' => $encontradas,
                 //'name'=>$name
             ]);
-        }else{
-            return redirect()->back()->with('msg','Credenciais invalidas !!');
+        } else {
+            return redirect()->back()->with('msg', 'Credenciais invalidas !!');
         }
     }
 
@@ -176,5 +183,4 @@ class HomeController extends Controller
             return $this->index();
         }
     }
-
 }

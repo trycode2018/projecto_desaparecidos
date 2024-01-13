@@ -182,17 +182,29 @@ class FindController extends Controller
         ],$customMessages);
 
         $find = Find::findOrFail($request->id);
+
+        /*
+        if ($funcionario->save()) {
+            return redirect('funcionario/listar/base')->with('msg', 'Cadastro relizado com sucesso');
+        } else {
+            return redirect('funcionario/listar/base')->with('ERRO', 'Erro ao salvar os dados na base de dados');
+        }
+        */
         if($find->user_id != auth()->id())
         {
-            dd('Você não tem permissão para editar esta pessoa desaparecida.');
+            //dd('Você não tem permissão para editar esta pessoa desaparecida.');
+           // return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
             /*return response()
             ->view('/index', compact('find'))
             ->with('mensagemErro', 'Você não tem permissão para editar esta pessoa desaparecida.')
             ->header('Content-Type', 'text/javascript');
             */
+            return false;
+            
             if(auth()->user()->isAdmin){
                 return Find::findOrfail($request->id)->update($data);
             }
+
         }else{
             return Find::findOrfail($request->id)->update($data);
         }

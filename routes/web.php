@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\visitanteContoller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,8 @@ Route::get('/entrar',[LoginController::class,'index']);
 Route::post('/check',[HomeController::class,'check']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::view('/perfil','perfil');
-Route::view('/','visitantes.visitor');
+Route::get('/',[visitanteContoller::class,'visitante_visualizarPessoas_desaparecidas']);
+Route::get('/',[visitanteContoller::class,'visitante_sabeMaisrPessoas_desaparecidas']);
 
 
 

@@ -18,6 +18,11 @@
         <p>Esta área é responsavél por apresentar a lista de todas as pessoas desaparecidas na cidade de Luanda, que estejam cadastrados no sistema.
         <a href="/home" >Ir a pagina inicial</a>.</p>
 
+        @if (session('ERRO'))
+        <p class="alert alert-danger mx-auto col-8 my-3 text-center fs-5">{{ session('ERRO') }}
+        </p>
+     @endif
+
         <!-- Table with stripped rows -->
         <table class="table ">
           <thead>
