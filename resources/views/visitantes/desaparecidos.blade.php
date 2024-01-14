@@ -27,7 +27,7 @@
                     <li><a class="title" href="home">Início</a></li>
                     <li><a class="title" href="#about">Sobre</a></li>
                     <li><a class="title" href="/desaparecidos">Desaparecidos</a></li>
-                    <li><a class="title" href="/depoimentos">Depoimento</a></li>
+                    <li><a class="title" href="#testimonials">Depoimento</a></li>
                     <li><a class="title" href="cadastrar">Registrar-se</a></li>
                 </ul>
             </div>
@@ -40,68 +40,7 @@
     </header>
 
     <main>
-        <!---------HOME---------->
-
-        <section class="section" id="home">
-
-            <section class="container grid">
-                <!------------imagebanner----->
-                <div class="image">
-                    <img src="{{ asset('assets/visitantes//images/img02.jpg') }}" alt="Pessoa desaparecida em Luanda">
-                </div>
-                <!------------textbanner----->
-                <div class="text">
-                    <h2 class="title">
-                        Desaparecimento de pessoas
-                    </h2>
-                    <p>
-                        O desaparecimento de pessoas é um problema global amplo,
-                        heterogêneo e com poucas estatísticas.
-                        Na busca por um familiar que desapareceu,
-                        Além das pessoas lutarem para encontrar uma resposta sobre o que aconteceu,
-                        essas famílias passam a ter necessidades em várias outras áreas de sua vida.
-                    </p>
-                    <a href="/entrar" class="button">Entrar no sistema</a>
-                </div>
-            </section>
-        </section>
-
-        <div class="divider-1"></div>
-
-        <!---------ABOUT---------->
-        <section class="section" id="about">
-            <section class="container grid">
-                <div class="image">
-                    <img src="{{ asset('assets/visitantes/images/sobre.jpg') }}" alt="Pessoas desaparecidas">
-                </div>
-                <div class="text">
-                    <h2 class="title">
-                        Sobre desaparecimentos
-                    </h2>
-                    <p>
-                        O desaparecimento tem consequências psicológicas, financeiras,
-                        jurídicas, sobre a segurança e também sobre saúde física.
-                    </p><br>
-                    <p>
-                        É importante que essas famílias tenham apoio das autoridades e da sociedade e
-                        é por isso que esse trabalho tem bastante relevancia para a sociedade.
-                    </p><br>
-
-                    <p><b>
-                            <i>
-                                Centenas de milhares de pessoas estão atualmente desaparecidas no mundo todo em
-                                decorrência de conflitos armados, violência, desastres naturais ou migrações.
-                            </i>
-                        </b>
-
-                    </p>
-
-                </div>
-            </section>
-        </section>
-
-        <div class="divider-2"></div>
-
+        
         <!----------SERVICES------------->
         <section class="section" id="services">
             <div class="container grid">

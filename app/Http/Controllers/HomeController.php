@@ -85,7 +85,6 @@ class HomeController extends Controller
                 // Conceder permissão
                 //dd($id);
                 $user->update(['permissionGranted' => true]);
-
                 // Redirecionar ou exibir mensagem de sucesso
                 return back()->with('mensagemSucesso', 'Permissão concedida com sucesso.');
             } else {

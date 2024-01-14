@@ -53,31 +53,34 @@
                                                     <td>Desabilitado</td>
                                                 @endif
 
-                                                <td class="action">
-                                                    <form class="search-bar" method="POST"
-                                                        action="/conceder/habilitar/{{ $user->id }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class="search-form d-flex align-items-center">
-                                                            <button type="submit"
-                                                                class="btn btn-success bi bi-arrows-expand"
-                                                                title="Habilitar"></button>
-                                                        </div>
-                                                    </form>
-                                                </td>
-
-                                                <td class="action">
-                                                    <form class="search-bar" method="POST"
-                                                        action="/conceder/Desabilitar/{{ $user->id }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class="search-form d-flex align-items-center">
-                                                            <button type="submit"
-                                                                class="btn btn-danger bi bi-arrows-expand"
-                                                                title="Desabilitar"></button>
-                                                        </div>
-                                                    </form>
-                                                </td>
+                                                {{-- Mostrar botão habilitar ou desabilitar --}}
+                                                @if ($user->permissionGranted)
+                                                    <td class="action">
+                                                        <form class="search-bar" method="POST"
+                                                            action="/conceder/Desabilitar/{{ $user->id }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="search-form d-flex align-items-center">
+                                                                <button type="submit"
+                                                                    class="btn btn-danger bi bi-arrows-expand"
+                                                                    title="Desabilitar"></button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                @else
+                                                    <td class="action">
+                                                        <form class="search-bar" method="POST"
+                                                            action="/conceder/habilitar/{{ $user->id }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="search-form d-flex align-items-center">
+                                                                <button type="submit"
+                                                                    class="btn btn-success bi bi-arrows-expand"
+                                                                    title="Habilitar"></button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                @endif
                                                 {{-- @endif --}}
                                             </tr>
                                         @endforeach
@@ -85,8 +88,8 @@
                                     </tbody>
                                 </table>
                                 <!-- End Table with stripped rows
-                    <input type="text" name="permission" id="permission">
-                    -->
+                        <input type="text" name="permission" id="permission">
+                        -->
 
                             </div>
                         </div>
