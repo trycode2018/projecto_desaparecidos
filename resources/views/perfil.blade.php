@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+
 <section class="section dashboard">
     <div class="row">
     <!-- Left side columns -->

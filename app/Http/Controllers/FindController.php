@@ -32,6 +32,9 @@ class FindController extends Controller
     public function getDesaparecidos(){
         return Find::where('status','Ativo')->get();
     }
+    public function getDesaparecidosParaAprovar(){
+        return Find::where('approved','0')->get();
+    }
     public function getEncontradas(){
         return Find::where('status','Inativo')->get();
     }
@@ -208,10 +211,36 @@ class FindController extends Controller
                 return Find::findOrfail($request->id)->update($data);
             }
 
-        }else{
+        } else{
+
             return Find::findOrfail($request->id)->update($data);
         }
 
+    }
+
+    public function update_AprovarPessoaDesaparecida(Request $request)
+    {
+        $data = [
+            'approved' => 1,
+            // Adicione outros campos que deseja atualizar, se necessário
+        ];
+        $find = Find::findOrFail($request->id);
+
+        return Find::findOrfail($request->id)->update($data);
+    
+    }
+
+    public function update_ReprovarPessoaDesaparecida(Request $request)
+    {
+        $data = [
+            'approved' => 0,
+            // Adicione outros campos que deseja atualizar, se necessário
+        ];
+        
+        $find = Find::findOrFail($request->id);
+
+        return Find::findOrfail($request->id)->update($data);
+    
     }
 
     /**

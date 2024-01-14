@@ -15,6 +15,9 @@ Route::middleware(['checkSession'])->group(
     Route::get('/create',[HomeController::class,'call_find']);
     Route::post('/store',[HomeController::class,'inserirPessoas']);
     Route::get('/show',[HomeController::class,'visualizarPessoas_desaparecidas']);
+    Route::get('/show/aprovar',[HomeController::class,'ListaParaAprovarPessoas_desaparecidas']);
+    Route::get('/show/aprovar/{id}',[HomeController::class,'AprovarPessoaDesaparecida']);
+    Route::get('/show/reprovar/{id}',[HomeController::class,'ReproprovarPessoaDesaparecida']);
     Route::get('/pessoas/aparecidas',[HomeController::class,'visualizarPessoas_aparecidas']);
     Route::get('/pessoas/{id}',[HomeController::class,'mostrarUmaPessoa'])->name('pessoas.mostrarUmaPessoa');
     Route::get('/pessoas',[HomeController::class,'visualizarPessoas']);
@@ -23,8 +26,8 @@ Route::middleware(['checkSession'])->group(
     Route::get('/edit/{id}',[HomeController::class,'editarPessoas']);
     Route::put('/update/{id}',[HomeController::class,'editarPessoa']);
     }
-);
-
+);   
+        
 Route::get('/buscaPorNome',[HomeController::class,'metodoDeBuscaPorNome']);
 
 Route::get('/cadastrar',[RegisterController::class,'create']);

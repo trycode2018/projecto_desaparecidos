@@ -51,6 +51,7 @@
                                     <b>{{$pessoa->description}}</b></p>
 
                                 @if ($pessoa->status=="Ativo")
+
                                 <p class="form-control">
                                     <label for="" class="col-form-label">Estado do desaparecimento :</label>
                                     <b> desaparecida</b></p>
@@ -59,6 +60,14 @@
                                     <label for="" class="col-form-label">Estado do desaparecimento :</label>
                                     <b>Pessoa encontrada</b></p>
                                 @endif
+
+                            
+                                    <a href="/show/aprovar/{{ $pessoa->id }}"
+                                        class="btn btn-success view-btn">
+                                        <ion-icon class="bi bi-eye" name="eye-outline"
+                                            title="aprovar"></ion-icon> Aprovar
+                                    </a>
+                                
 
                             </div>
                         </div>

@@ -141,7 +141,7 @@
                             <a href="/pessoas">
                                 <i class="bi bi-code-slash"></i><span>Visualizar Todos</span>
                             </a>
-                        </li>
+                        </li>/cfj
 
                     </ul>
                 </li><!-- End Components Nav -->
@@ -161,6 +161,11 @@
                             class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="/show/aprovar">
+                                <i class="bi bi-circle"></i><span>Aprovar publicação</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="/show">
                                 <i class="bi bi-circle"></i><span>Desaparecidas</span>

@@ -105,6 +105,12 @@ class HomeController extends Controller
         return view('show', ['pessoas' => $pessoas]);
     }
 
+    public function ListaParaAprovarPessoas_desaparecidas()
+    {
+        $pessoas = (new FindController())->getDesaparecidosParaAprovar();
+        return view('ListaDePostparaAprovar', ['pessoas' => $pessoas]);
+    }
+
     public function editarPessoas($id)
     {
         $pessoa = (new FindController())->edit($id);
@@ -121,6 +127,32 @@ class HomeController extends Controller
     {
         //$dados = (new FindController())->update($request);
         if ($dados = (new FindController())->update($request)) {
+            return redirect('/home')->with([
+                'success' => 'Pessoa editado com sucesso !!',
+                'dados' => $dados
+            ]);
+        } else {
+            return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
+        }
+    }
+
+    public function AprovarPessoaDesaparecida(Request $request)
+    {
+        //$dados = (new FindController())->update($request);
+        if ($dados = (new FindController())->update_AprovarPessoaDesaparecida($request)) {
+            return redirect('/home')->with([
+                'success' => 'Pessoa editado com sucesso !!',
+                'dados' => $dados
+            ]);
+        } else {
+            return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
+        }
+    }
+
+    public function ReproprovarPessoaDesaparecida(Request $request)
+    {
+        //$dados = (new FindController())->update($request);
+        if ($dados = (new FindController())->update_ReprovarPessoaDesaparecida($request)) {
             return redirect('/home')->with([
                 'success' => 'Pessoa editado com sucesso !!',
                 'dados' => $dados

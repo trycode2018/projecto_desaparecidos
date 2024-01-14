@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Pessoas desaparecidas
+    Aprovar Post
 @endsection
 
 @section('content')
@@ -42,7 +42,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($pessoas as $find)
-                                            @if ($find->approved)
+                                            @if (!$find->approved)
                                                 <tr>
                                                     <th scope="row">{{ $find->id }}</th>
                                                     <td>{{ $find->name }}</td>
@@ -55,7 +55,6 @@
                                                     @else
                                                         <td>Não Aprovado</td>
                                                     @endif
-
                                                     <td><img src="{{ asset('assets/img/' . $find->picture) }}"
                                                             style="width:50px;height:50px;" class="rounded-circle"></td>
                                                     <td class="action">
@@ -66,12 +65,15 @@
                                                             class="btn btn-primary view-btn">
                                                             <ion-icon class="bi bi-eye" name="eye-outline"></ion-icon>
                                                         </a>
-                                                        <a href="/show/reprovar/{{ $find->id }}"
-                                                            class="btn btn-danger view-btn">
+
+                                                        <a href="/show/aprovar/{{ $find->id }}"
+                                                            class="btn btn-success view-btn">
                                                             <ion-icon class="bi bi-eye" name="eye-outline"
-                                                                title="reprovar"></ion-icon> Desabilitar
+                                                                title="aprovar"></ion-icon> Aprovar
+                                                        </a>
 
                                                     </td>
+
                                                 </tr>
                                             @endif
                                         @endforeach

@@ -115,6 +115,8 @@
                 @if (count($pessoas) > 0)
                     <div class="cards grid">
                         @foreach ($pessoas as $pessoa)
+
+                        @if ($pessoa->approved)
                             <div class="card">
 
                                 @if ($pessoa->picture != null)
@@ -136,6 +138,7 @@
                                 <a href="/sabermais/{{ $pessoa->id }}" class="button">Saber mas</a>
                                 </p>
                             </div>
+                        @endif
                         @endforeach
                     </div>
 
