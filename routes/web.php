@@ -23,6 +23,8 @@ Route::middleware(['checkSession'])->group(
     Route::get('/pessoas',[HomeController::class,'visualizarPessoas']);
     Route::get('/conceder',[HomeController::class,'concederPermissao']);
     Route::put('/conceder/{id}',[HomeController::class,'registrarPermissao']);
+    Route::put('/conceder/habilitar/{id}',[HomeController::class,'HabilitarUser']);
+    Route::put('/conceder/Desabilitar/{id}',[HomeController::class,'DesabilitarUser']);
     Route::get('/edit/{id}',[HomeController::class,'editarPessoas']);
     Route::put('/update/{id}',[HomeController::class,'editarPessoa']);
     }

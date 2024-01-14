@@ -51,12 +51,18 @@
                                                     <td>{{ $find->date }}</td>
                                                     <td>{{ $find->phone_number }}</td>
                                                     @if ($find->approved)
-                                                        <td> Aprovado</td>
+                                                        <td> Aprovado </td>
                                                     @else
-                                                        <td>Não Aprovado</td>
+                                                        <td>Não Aprovado </td>
                                                     @endif
-                                                    <td><img src="{{ asset('assets/img/' . $find->picture) }}"
-                                                            style="width:50px;height:50px;" class="rounded-circle"></td>
+
+                                                    @if ($find->picture != null)
+                                                        <td><img src="{{ asset('assets/img/' . $find->picture) }}"
+                                                                style="width:50px;height:50px;" class="rounded-circle"></td>
+                                                    @else
+                                                        <td><img src="assets/img/perfilsemfoto.jpg"
+                                                            tyle="width:50px;height:50px;" class="rounded-circle"></td>
+                                                    @endif
                                                     <td class="action">
                                                         <a href="/edit/{{ $find->id }}" class="btn btn-info edit-btn">
                                                             <ion-icon class="bi bi-pencil" name="create-outline"></ion-icon>

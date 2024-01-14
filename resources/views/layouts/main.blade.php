@@ -141,18 +141,25 @@
                             <a href="/pessoas">
                                 <i class="bi bi-code-slash"></i><span>Visualizar Todos</span>
                             </a>
-                        </li>/cfj
+                        </li>
 
                     </ul>
                 </li><!-- End Components Nav -->
 
                 @if (Auth::user()->isAdmin)
                     <li class="nav-item">
-                        <a href="/conceder" class="nav-link ">
+                        <a href="/conceder" class="nav-link text-danger">
                             <i class="bi bi-code-slash"></i>
-                            <span>Conceder Permissão</span>
+                            <span>Desabilitar Permissão</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/show/aprovar" class="nav-link ">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Aprovar publicação</span>
+                        </a>
+                    </li>
+    
                 @endif
 
                 <li class="nav-item">
@@ -161,11 +168,7 @@
                             class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="/show/aprovar">
-                                <i class="bi bi-circle"></i><span>Aprovar publicação</span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a href="/show">
                                 <i class="bi bi-circle"></i><span>Desaparecidas</span>

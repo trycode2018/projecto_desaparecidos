@@ -14,35 +14,43 @@ class FindController extends Controller
      */
     public function index()
     {
-       return Find::all();
+        return Find::all();
     }
 
-    public function getId(){
+    public function getId()
+    {
         // buscar id
     }
 
-    public function count(){
+    public function count()
+    {
         return sizeof($this->getDesaparecidos());
     }
 
-    public function getTotal(){
+    public function getTotal()
+    {
         return $this->index()->count();
     }
 
-    public function getDesaparecidos(){
-        return Find::where('status','Ativo')->get();
+    public function getDesaparecidos()
+    {
+        return Find::where('status', 'Ativo')->get();
     }
-    public function getDesaparecidosParaAprovar(){
-        return Find::where('approved','0')->get();
+    public function getDesaparecidosParaAprovar()
+    {
+        return Find::where('approved', '0')->get();
     }
-    public function getEncontradas(){
-        return Find::where('status','Inativo')->get();
+    public function getEncontradas()
+    {
+        return Find::where('status', 'Inativo')->get();
     }
-    public function totalEncontradas(){
+    public function totalEncontradas()
+    {
         return sizeof($this->getEncontradas());
     }
-    public function getDesaparecidoPorId($id){
-        return Find::where('id',$id)->first();
+    public function getDesaparecidoPorId($id)
+    {
+        return Find::where('id', $id)->first();
     }
     /**
      * Show the form for creating a new resource.
@@ -86,7 +94,7 @@ class FindController extends Controller
             'status' => 'required|in:Ativo,Inativo',
             'date' => 'required|date',
             'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ],$customMessages);
+        ], $customMessages);
 
         $user = new Find();
         $user->name = $request->input('name');
@@ -95,33 +103,29 @@ class FindController extends Controller
         $user->phone_number = $request->input('phone_number');
         $user->description = $request->input('description');
 
-        if($request->hasFile('image') && $request->file('image')->isValid())
-        {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
 
             $extension = $requestImage->extension();
 
-            $imageName = $requestImage->getClientOriginalName().".".$extension;
+            $imageName = $requestImage->getClientOriginalName() . "." . $extension;
 
-            $request->image->move(public_path('assets/img/'),$imageName);
+            $request->image->move(public_path('assets/img/'), $imageName);
             $user->picture = $imageName;
+        } else {
 
-        }else  {
-          
-              $user->picture = '' ;
+            $user->picture = '';
         }
 
 
         $user->date = $request->date;
         $user->status = "Ativo";
-        if(auth()->user()->permissionGranted || auth()->user()->isAdmin)
-        {
+        if (auth()->user()->permissionGranted || auth()->user()->isAdmin) {
             $user->save();
             return $user->id;
-        }else{
+        } else {
             return -1;
         }
-
     }
 
     /**
@@ -160,15 +164,14 @@ class FindController extends Controller
     {
         $data = $request->all();
 
-        if($request->hasFile('image') && $request->file('image')->isValid())
-        {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
 
             $extension = $requestImage->extension();
 
-            $imageName = $requestImage->getClientOriginalName().".".$extension;
+            $imageName = $requestImage->getClientOriginalName() . "." . $extension;
 
-            $request->image->move(public_path('assets/img/'),$imageName);
+            $request->image->move(public_path('assets/img/'), $imageName);
             $data['picture'] = $imageName;
         }
 
@@ -184,8 +187,8 @@ class FindController extends Controller
             'status' => 'required|in:Ativo,Inativo',
             'description' => 'required|string',
             'address' => 'required|string',
-            'phone_number'=>'required|integer|digits:9',
-        ],$customMessages);
+            'phone_number' => 'required|integer|digits:9',
+        ], $customMessages);
 
         $find = Find::findOrFail($request->id);
 
@@ -196,26 +199,23 @@ class FindController extends Controller
             return redirect('funcionario/listar/base')->with('ERRO', 'Erro ao salvar os dados na base de dados');
         }
         */
-        if($find->user_id != auth()->id())
-        {
+        if ($find->user_id != auth()->id()) {
             //dd('Você não tem permissão para editar esta pessoa desaparecida.');
-           // return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
+            // return redirect('show')->with('ERRO', 'Você não tem permissão para editar esta pessoa desaparecida.');
             /*return response()
             ->view('/index', compact('find'))
             ->with('mensagemErro', 'Você não tem permissão para editar esta pessoa desaparecida.')
             ->header('Content-Type', 'text/javascript');
             */
             return false;
-            
-            if(auth()->user()->isAdmin){
+
+            if (auth()->user()->isAdmin) {
                 return Find::findOrfail($request->id)->update($data);
             }
-
-        } else{
+        } else {
 
             return Find::findOrfail($request->id)->update($data);
         }
-
     }
 
     public function update_AprovarPessoaDesaparecida(Request $request)
@@ -226,8 +226,11 @@ class FindController extends Controller
         ];
         $find = Find::findOrFail($request->id);
 
-        return Find::findOrfail($request->id)->update($data);
-    
+        if (auth()->user()->isAdmin) {
+            return Find::findOrfail($request->id)->update($data);
+        } else {
+            return false;
+        }
     }
 
     public function update_ReprovarPessoaDesaparecida(Request $request)
@@ -236,11 +239,14 @@ class FindController extends Controller
             'approved' => 0,
             // Adicione outros campos que deseja atualizar, se necessário
         ];
-        
+
         $find = Find::findOrFail($request->id);
 
-        return Find::findOrfail($request->id)->update($data);
-    
+        if (auth()->user()->isAdmin) {
+            return Find::findOrfail($request->id)->update($data);
+        } else {
+            return false;
+        }
     }
 
     /**
