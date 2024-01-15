@@ -34,10 +34,12 @@ Route::get('/buscaPorNome',[HomeController::class,'metodoDeBuscaPorNome']);
 
 Route::get('/cadastrar',[RegisterController::class,'create']);
 Route::post('/register',[RegisterController::class,'store'])->name('register');
+Route::post('/registerUser',[RegisterController::class,'storeUser'])->name('registerUser');
 Route::get('/entrar',[LoginController::class,'index']);
 Route::post('/check',[HomeController::class,'check']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::view('/perfil','perfil');
+Route::view('/registrarUsuario','registrarUsuario');
 Route::get('/',[visitanteContoller::class,'visitante_visualizarPessoas_desaparecidas']);
 Route::get('/desaparecidos',[visitanteContoller::class,'visualizarPessoas_desaparecidas']);
 Route::get('/depoimentos',[visitanteContoller::class,'depoimentos_visualizarPessoas_desaparecidas']);

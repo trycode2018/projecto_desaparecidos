@@ -147,10 +147,16 @@
                 </li><!-- End Components Nav -->
 
                 @if (Auth::user()->isAdmin)
+                <li class="nav-item">
+                    <a href="/registrarUsuario" class="nav-link">
+                        <i class="bi bi-code-slash"></i>
+                        <span>Registrar usuario</span>
+                    </a>
+                </li>
                     <li class="nav-item">
                         <a href="/conceder" class="nav-link text-danger">
                             <i class="bi bi-code-slash"></i>
-                            <span>Desabilitar Permissão</span>
+                            <span>Conceder Permissão</span>
                         </a>
                     </li>
                     <li class="nav-item">
