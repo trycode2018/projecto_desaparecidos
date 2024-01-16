@@ -31,25 +31,35 @@
 
                                             <div class="container-fluid">
 
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
+
                                                 <div class="card mb-3">
 
                                                     <div class="card-body">
 
-                                                        <div class="pt-4 pb-2">
+                                                        <div class="pt-4 d-none">
                                                             <h5 class="card-title text-center pb-0 fs-4">Cria a sua conta
                                                             </h5>
                                                             <p class="text-center small">Informe seus dados para criar sua
                                                                 conta</p>
                                                         </div>
 
-                                                        <form class="row g-3 needs-validation"
+                                                        <form class="row g-3 needs-validation py-5"
                                                             action="{{ route('registerUser') }}" method="POST"
                                                             enctype="multipart/form-data">
                                                             {!! csrf_field() !!}
                                                             <div class="col-12">
                                                                 <label for="yourName" class="form-label">Seu nome</label>
                                                                 <input type="text" name="name" class="form-control"
-                                                                    id="name" required>
+                                                                    id="name" required value="{{old('name')}}">
                                                                 <div class="invalid-feedback">Porfavor, informe seu nome!
                                                                 </div>
                                                             </div>
@@ -69,7 +79,7 @@
                                                                     <span class="input-group-text"
                                                                         id="inputGroupPrepend">@</span>
                                                                     <input type="text" name="email"
-                                                                        class="form-control" id="email" required>
+                                                                        class="form-control" id="email" required value="{{old('email')}}">
                                                                     <div class="invalid-feedback">Porfavor escolhe um email
                                                                         de entrada.</div>
                                                                 </div>

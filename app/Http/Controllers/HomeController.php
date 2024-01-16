@@ -74,6 +74,15 @@ class HomeController extends Controller
         ]);
     }
 
+    public function listar_usuarios()
+    {
+        $adminUsers = User::where('isAdmin', 1)->get();
+
+        return view('listar_usuarios', [
+            'users' => $adminUsers
+        ]);
+    }
+
     public function HabilitarUser(Request $request, $id)
     {
 
@@ -123,6 +132,7 @@ class HomeController extends Controller
     public function registrarPermissao(Request $request, $id)
     {
 
+        $pessoa = (new FindController())->edit($id);
         $user = User::findOrFail($id);
 
         if (auth()->user()->isAdmin) {

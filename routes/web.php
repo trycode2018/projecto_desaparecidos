@@ -22,6 +22,7 @@ Route::middleware(['checkSession'])->group(
     Route::get('/pessoas/{id}',[HomeController::class,'mostrarUmaPessoa'])->name('pessoas.mostrarUmaPessoa');
     Route::get('/pessoas',[HomeController::class,'visualizarPessoas']);
     Route::get('/conceder',[HomeController::class,'concederPermissao']);
+    Route::get('/listar_usuarios',[HomeController::class,'listar_usuarios']);
     Route::put('/conceder/{id}',[HomeController::class,'registrarPermissao']);
     Route::put('/conceder/habilitar/{id}',[HomeController::class,'HabilitarUser']);
     Route::put('/conceder/Desabilitar/{id}',[HomeController::class,'DesabilitarUser']);

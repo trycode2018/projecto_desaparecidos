@@ -147,25 +147,42 @@
                 </li><!-- End Components Nav -->
 
                 @if (Auth::user()->isAdmin)
+
                 <li class="nav-item">
-                    <a href="/registrarUsuario" class="nav-link">
-                        <i class="bi bi-code-slash"></i>
-                        <span>Registrar usuario</span>
+                    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-layout-text-window-reverse"></i><span> Gestão de usuarios </span><i
+                            class="bi bi-chevron-down ms-auto"></i>
                     </a>
-                </li>
-                    <li class="nav-item">
-                        <a href="/conceder" class="nav-link text-danger">
-                            <i class="bi bi-code-slash"></i>
-                            <span>Conceder Permissão</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/show/aprovar" class="nav-link ">
-                            <i class="bi bi-code-slash"></i>
-                            <span>Aprovar publicação</span>
-                        </a>
-                    </li>
-    
+                    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        
+                        <li>
+                            <a href="/registrarUsuario" class="nav-link text-success">
+                                <i class="bi bi-code-slash"></i>
+                                <span>Registrar usuario</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/listar_usuarios" class="nav-link text-success">
+                                <i class="bi bi-code-slash"></i>
+                                <span>listar usuarios</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/conceder" class="nav-link text-danger">
+                                <i class="bi bi-code-slash"></i>
+                                <span>Conceder Permissão</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/show/aprovar" class="nav-link ">
+                                <i class="bi bi-code-slash"></i>
+                                <span>Aprovar publicação</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Tables Nav -->
+
+              
                 @endif
 
                 <li class="nav-item">

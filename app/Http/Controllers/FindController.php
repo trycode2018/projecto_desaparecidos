@@ -83,6 +83,7 @@ class FindController extends Controller
             'picture.image' => 'O campo foto deve ser uma imagem',
             'picture.mimes' => 'O campo foto deve ser do formato (jpeg, png,jpg ou gif)',
         ];
+        
         $request->merge(['status' => $request->input('status', 'Ativo')]);
 
         $request->validate([

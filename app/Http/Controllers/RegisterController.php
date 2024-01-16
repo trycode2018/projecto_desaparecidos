@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -15,6 +16,7 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
+    
         $input = $request->all();
 
         $requestImage = $request->file('profile_image');
@@ -44,8 +46,19 @@ class RegisterController extends Controller
         return view('auth.login');
     }
 
-    
+
     public function storeUser(Request $request){
+    
+
+        $customMessages = [
+            'email.unique' => 'o email inserido ja esta registrado',
+        ];
+        
+        $request->validate([
+            'email' => ['required','email',Rule::unique('users','email')],
+        ], $customMessages);
+
+
         $input = $request->all();
 
         $requestImage = $request->file('profile_image');
