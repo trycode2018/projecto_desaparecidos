@@ -26,7 +26,7 @@
                 <ul class="grid">
                     <li><a class="title" href="home">Início</a></li>
                     <li><a class="title" href="#about">Sobre</a></li>
-                    <li><a class="title" href="/desaparecidos">Desaparecidos</a></li>
+                    <li><a class="title" href="/desaparecidos">Desaparecidos 10</a></li>
                     <li><a class="title" href="#testimonials">Depoimento</a></li>
                     <li><a class="title" href="cadastrar">Registrar-se</a></li>
                 </ul>
