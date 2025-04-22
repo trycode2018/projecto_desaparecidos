@@ -1,0 +1,33 @@
+Neste tutorial, será apresentado como baixar um projeto do GitHub.
+
+Primeiramente, será explicado como iniciar um novo repositório com o GIT na máquina.
+
+Em seguida, será demonstrado como baixar o projeto do GitHub.
+
+Para finalizar, será apresentado como obter as atualizações do projeto do GitHub.
+
+Para trabalhar com o GitHub, é necessário ter o Git instalado na máquina.
+
+Para baixar o projeto do GitHub é necessário iniciar novo packet com GIT na máquina.
+
+git init
+
+Em seguida, definir as configurações do usuário.
+
+git config --local user.name <substituir_pelo_nome_do_usuario>
+
+git config --local user.email <substituir_pelo_email_do_usuario>
+
+Para clonar os arquivos do projeto do GitHub.
+
+git clone --branch <branch_name> <repository_url> 
+
+Exemplo: git clone --branch 1.0 https://github.com/celkecursos/celke_como_usar.git
+
+Verificar a branch usada localmente.
+
+git branch
+
+Baixar as atualizações do projeto no GitHub.
+
+git pull
